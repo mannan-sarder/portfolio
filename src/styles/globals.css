@@ -1,0 +1,416 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties (Design Tokens) ─────────────────────────────────── */
+
+:root {
+  /* ── Font Variables ──────────────────────────────────────────────────────
+     --font-satoshi   → Satoshi Variable (local woff2)  headings 600 700 800
+     --font-geist-sans → Geist (npm package)            body/ui  400 500
+     --font-geist-mono → Geist Mono (npm package)       mono     400 500
+     --font-inter      → Inter (Google Fonts)           captions 400 600
+  ───────────────────────────────────────────────────────────────────────── */
+
+  /* Background */
+  --bg-main: #0a0a0a;
+  --bg-surface: #111111;
+  --bg-elevated: #1a1a1a;
+
+  /* Border */
+  --border-default: #2a2a2a;
+  --border-active: #8b5cf6;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --text-muted: #a1a1aa;
+
+  /* Accent */
+  --primary-blue: #3b82f6;
+  --secondary-purple: #8b5cf6;
+  --success: #22c55e;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #8b5cf6);
+
+  /* Shadows */
+  --shadow-glow-purple: 0 0 20px rgba(139, 92, 246, 0.15);
+  --shadow-glow-purple-lg: 0 0 30px rgba(139, 92, 246, 0.2);
+
+  /* Spacing */
+  --section-padding: 120px;
+  --container-max: 1280px;
+  --content-max: 650px;
+
+  /* Animation */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* Z-index */
+  --z-navbar: 100;
+  --z-dropdown: 200;
+  --z-tooltip: 300;
+  --z-modal: 1000;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  /* Geist — body text, descriptions, paragraphs, footer, buttons */
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Font Utility Classes ───────────────────────────────────────────────────── */
+
+/* Satoshi Variable — Hero/Section/Card/Story/CTA titles (600 700 800) */
+.font-satoshi {
+  font-family: var(--font-satoshi), system-ui, sans-serif;
+}
+
+/* Geist — Paragraphs, descriptions, metadata, footer, buttons (400 500) */
+.font-geist {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Geist Mono — Years, stats, project status, code-like elements (400 500) */
+.font-mono {
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+}
+
+/* Inter — Captions only (400 600) */
+.font-inter {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ─── Heading Defaults (Satoshi Variable) ────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-satoshi), system-ui, sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Paragraph / UI Defaults (Geist) ───────────────────────────────────────── */
+
+p,
+span,
+a,
+li,
+label,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* ─── Caption Default (Inter) ────────────────────────────────────────────────── */
+
+figcaption,
+caption,
+.caption {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ─── Mono Default (Geist Mono) ──────────────────────────────────────────────── */
+
+code,
+kbd,
+samp,
+pre,
+time,
+.stat,
+.mono {
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+}
+
+/* ─── Gradient Text ──────────────────────────────────────────────────────────── */
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Container ──────────────────────────────────────────────────────────────── */
+
+.container-main {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ─── Section Padding ────────────────────────────────────────────────────────── */
+
+.section-padding {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+@media (max-width: 767px) {
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+/* ─── Card Base ──────────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 24px;
+  padding: 32px;
+  transition: all var(--duration-normal) ease;
+}
+
+.card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-purple);
+}
+
+/* ─── Button System (Geist) ──────────────────────────────────────────────────── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 16px;
+  background: var(--gradient-primary);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--duration-normal) ease,
+    box-shadow var(--duration-normal) ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-purple);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 16px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  border: 1px solid var(--border-default);
+  cursor: pointer;
+  transition: border-color var(--duration-normal) ease,
+    transform var(--duration-normal) ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+}
+
+/* ─── Badge ──────────────────────────────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ─── Tab System ─────────────────────────────────────────────────────────────── */
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-default);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  cursor: pointer;
+  transition: all var(--duration-normal) ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: var(--secondary-purple);
+  border-color: var(--secondary-purple);
+  color: #ffffff;
+}
+
+/* ─── Section Label (Inter — caption role) ───────────────────────────────────── */
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--secondary-purple);
+}
+
+.section-label::before,
+.section-label::after {
+  content: "•";
+  opacity: 0.6;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-purple);
+}
+
+/* ─── Focus Visible ──────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--secondary-purple);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────────── */
+
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: #ffffff;
+}
+
+/* ─── Image Defaults ─────────────────────────────────────────────────────────── */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Gradient Border ────────────────────────────────────────────────────────── */
+
+.gradient-border {
+  position: relative;
+  border-radius: 24px;
+  background: var(--bg-surface);
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-primary);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Noise Overlay ──────────────────────────────────────────────────────────── */
+
+.noise-overlay::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}

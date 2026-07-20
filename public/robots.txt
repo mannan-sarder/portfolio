@@ -1,0 +1,15 @@
+# robots.txt — mannan.dev
+User-agent: *
+Allow: /
+
+# Block private/utility paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+Disallow: /500
+
+# Crawl delay (optional, respected by some bots)
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://mannan.dev/sitemap.xml
