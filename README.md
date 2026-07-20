@@ -9,6 +9,7 @@ Personal portfolio website of **MD Mannan Sarder**, Software Engineer & Full Sta
 ## About
 
 I build modern web applications and enjoy turning ideas into useful digital products — currently focused on full-stack development, with a growing interest in UI/UX design and continuous learning.
+<img width="945" height="417" alt="portfolio" src="https://github.com/user-attachments/assets/a349dfca-f2ae-4218-a6d0-f3a2266655fd" />
 
 ## Tech Stack
 
