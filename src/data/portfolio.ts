@@ -55,7 +55,7 @@ export const SEO: SeoMeta = {
     "MD Mannan Sarder",
   ],
   ogImage: "/og-image.webp",
-  siteUrl: "https://mannan.dev",
+  siteUrl: "https://mannansarder.vercel.app",
 };
 
 // ─── Social Links ───────────────────────────────────────────────────────────

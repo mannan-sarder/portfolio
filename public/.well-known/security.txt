@@ -1,8 +1,8 @@
 # Security Policy — MD Mannan Sarder Portfolio
-# https://mannan.dev/.well-known/security.txt
+# https://mannansarder.vercel.app/.well-known/security.txt
 # RFC 9116 compliant
 
 Contact: mailto:mannansarder00@gmail.com
 Expires: 2027-06-25T00:00:00.000Z
 Preferred-Languages: en, bn
-Canonical: https://mannan.dev/.well-known/security.txt
+Canonical: https://mannansarder.vercel.app/.well-known/security.txt

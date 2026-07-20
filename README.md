@@ -2,7 +2,7 @@
 
 Personal portfolio website of **MD Mannan Sarder**, Software Engineer & Full Stack Developer based in Bangladesh.
 
-**Live:** [mannan.dev](https://mannan.dev)
+**Live:** [mannansarder.vercel.app](https://mannansarder.vercel.app)
 
 ![Preview](public/og-image.webp)
 

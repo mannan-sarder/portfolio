@@ -6,7 +6,7 @@
 
   <!-- Home / Portfolio -->
   <url>
-    <loc>https://mannan.dev/</loc>
+    <loc>https://mannansarder.vercel.app/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -14,28 +14,28 @@
 
   <!-- Sections (anchor links — good for crawlers) -->
   <url>
-    <loc>https://mannan.dev/#about</loc>
+    <loc>https://mannansarder.vercel.app/#about</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mannan.dev/#projects</loc>
+    <loc>https://mannansarder.vercel.app/#projects</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mannan.dev/#stack</loc>
+    <loc>https://mannansarder.vercel.app/#stack</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mannan.dev/#contact</loc>
+    <loc>https://mannansarder.vercel.app/#contact</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
