@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
       { name: "Server-Sent Events", category: "tools" },
       { name: "Leaflet", category: "tools" },
     ],
-    coverImage: "/images/project/retailSync hub/cover.webp",
+    coverImage: "/images/project/retailSync hub/cover2.webp",
     mockupImage: "/images/project/retailSync hub/customer dashboard.webp",
     screenshots: [
   { src: "/images/project/retailSync hub/cover.webp", alt: "RetailSync Hub landing page", caption: "RetailSync Hub landing page featuring product categories and deals" },
