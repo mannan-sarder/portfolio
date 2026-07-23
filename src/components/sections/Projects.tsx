@@ -415,6 +415,28 @@ function ProjectCard({
             {project.liveUrlLabel ?? (project.type === "mobile" ? "Google Play" : "Live Demo")}
           </a>
         )}
+        {project.playStoreUrl && (
+          <a
+            href={project.playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 h-9 px-4 rounded-xl border border-[#2A2A2A] bg-transparent text-[13px] font-medium text-[#A1A1AA] font-geist hover:border-[#8B5CF6]/50 hover:text-white transition-all duration-200"
+          >
+            <PlayIcon />
+            Play Store
+          </a>
+        )}
+        {project.appStoreUrl && (
+          <a
+            href={project.appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 h-9 px-4 rounded-xl border border-[#2A2A2A] bg-transparent text-[13px] font-medium text-[#A1A1AA] font-geist hover:border-[#8B5CF6]/50 hover:text-white transition-all duration-200"
+          >
+            <ExternalLinkIcon />
+            App Store
+          </a>
+        )}
         {project.githubUrl && (
           <a
             href={project.githubUrl}
@@ -994,6 +1016,28 @@ function ProjectDetail({
           >
             {project.liveUrlLabel ?? (isWeb ? "View Live Demo" : "Google Play")}
             <ExternalLinkIcon />
+          </a>
+        )}
+        {project.playStoreUrl && (
+          <a
+            href={project.playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 h-11 px-6 rounded-2xl border border-[#2A2A2A] bg-transparent text-white text-[14px] font-semibold font-geist hover:border-[#8B5CF6]/50 active:scale-[0.98] transition-all duration-200"
+          >
+            <PlayIcon />
+            Play Store
+          </a>
+        )}
+        {project.appStoreUrl && (
+          <a
+            href={project.appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 h-11 px-6 rounded-2xl border border-[#2A2A2A] bg-transparent text-white text-[14px] font-semibold font-geist hover:border-[#8B5CF6]/50 active:scale-[0.98] transition-all duration-200"
+          >
+            <ExternalLinkIcon />
+            App Store
           </a>
         )}
         {project.githubUrl && (

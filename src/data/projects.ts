@@ -32,6 +32,8 @@ export interface Project {
   screenshots?: ProjectImage[];
   liveUrl?: string;
   liveUrlLabel?: string;
+  playStoreUrl?: string;
+  appStoreUrl?: string;
   githubUrl?: string;
   caseStudyUrl?: string;
   myRole?: string;
