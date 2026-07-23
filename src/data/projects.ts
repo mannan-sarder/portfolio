@@ -31,6 +31,7 @@ export interface Project {
   mockupImage?: string;
   screenshots?: ProjectImage[];
   liveUrl?: string;
+  liveUrlLabel?: string;
   githubUrl?: string;
   caseStudyUrl?: string;
   myRole?: string;
@@ -212,7 +213,7 @@ export const PROJECTS: Project[] = [
     type: "mobile",
     subtitle: "Smart Medical Report Reader & Health Assistant",
     description:
-      "A fully offline Android app that scans medical test reports using OCR, extracts patient data and test values, compares them against a WHO/NIH-sourced standard range dataset, and presents results in both Bangla and English. Users can compare two reports side by side with trend charts, track history, and set medicine reminders.",
+      "A fully offline Android app that scans medical test reports using OCR, extracts patient data and test values, compares them against a WHO/NIH-sourced standard range dataset, and presents results in both Bangla and English. Users can compare two reports side by side with trend charts, track history, and set medicine reminders. APK available for direct download via GitHub Releases: https://github.com/mannan-sarder/medimind/releases/latest",
     shortDescription:
       "Offline medical report scanner with OCR analysis, bilingual results, and report comparison.",
     features: [
@@ -231,6 +232,7 @@ export const PROJECTS: Project[] = [
       { text: "Medicine reminder system with scheduled notifications" },
       { text: "User profile management (name, gender, age, contact)" },
       { text: "Dark mode and theme settings (light/dark/system)" },
+      { text: "Downloadable APK available via GitHub Releases — install directly, no Play Store needed" },
     ],
     techStack: [
       { name: "Java", category: "frontend" },
@@ -264,7 +266,8 @@ export const PROJECTS: Project[] = [
       { src: "/images/project/medimind/Dark home analyze history.webp", alt: "Dark mode home, analyze, history", caption: "Dark mode support" },
       { src: "/images/project/medimind/Dark compare remind result setting.webp", alt: "Dark mode compare, remind, result, settings", caption: "Dark mode across app" },
     ],
-    liveUrl: "",
+    liveUrl: "https://github.com/mannan-sarder/medimind/releases/latest",
+    liveUrlLabel: "Download APK",
     githubUrl: "https://github.com/mannan-sarder/medimind",
     myRole: "Android Developer",
     duration: "3 months",

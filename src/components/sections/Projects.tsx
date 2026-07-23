@@ -411,8 +411,8 @@ function ProjectCard({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 h-9 px-4 rounded-xl border border-[#2A2A2A] bg-transparent text-[13px] font-medium text-[#A1A1AA] font-geist hover:border-[#8B5CF6]/50 hover:text-white transition-all duration-200"
           >
-            {project.type === "mobile" ? <PlayIcon /> : <ExternalLinkIcon />}
-            {project.type === "mobile" ? "Google Play" : "Live Demo"}
+            {project.type === "mobile" && !project.liveUrlLabel ? <PlayIcon /> : <ExternalLinkIcon />}
+            {project.liveUrlLabel ?? (project.type === "mobile" ? "Google Play" : "Live Demo")}
           </a>
         )}
         {project.githubUrl && (
@@ -992,7 +992,7 @@ function ProjectDetail({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 h-11 px-6 rounded-2xl bg-gradient-to-r from-blue-500 to-violet-600 text-white text-[14px] font-semibold font-geist hover:opacity-90 active:scale-[0.98] transition-all duration-200"
           >
-            {isWeb ? "View Live Demo" : "Google Play"}
+            {project.liveUrlLabel ?? (isWeb ? "View Live Demo" : "Google Play")}
             <ExternalLinkIcon />
           </a>
         )}
