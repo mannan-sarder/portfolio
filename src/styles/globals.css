@@ -70,6 +70,19 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Lets the browser's native hash-scroll (e.g. a Link navigating from
+   /projects back to /#projects) land below the fixed header — same offset
+   the Navbar already uses for its own manual smooth-scroll on the homepage. */
+#home,
+#about,
+#stack,
+#experience,
+#projects,
+#behind-the-coding,
+#contact {
+  scroll-margin-top: 80px;
+}
+
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);

@@ -43,6 +43,26 @@ export interface StackCard {
   };
 }
 
+// ─── Experience ─────────────────────────────────────────────────────────────────
+
+export type ExperienceType = "work" | "education";
+export type WorkMode = "On-site" | "Remote" | "Hybrid";
+
+export interface ExperienceItem {
+  id: string;
+  type: ExperienceType;
+  role: string;
+  organization: string;
+  employmentType?: string; // e.g. "Internship", "Full-time"
+  period: string;          // e.g. "Feb 2026 – Apr 2026"
+  duration?: string;       // e.g. "3 mos"
+  location?: string;       // e.g. "Dhaka, Bangladesh"
+  workMode?: WorkMode;
+  image?: string;          // optional company / institution logo (timeline icon)
+  images?: string[];       // optional gallery of supporting images (certificates, letters, etc.)
+  points: string[];
+}
+
 // ─── Stories (Behind the Coding) ───────────────────────────────────────────────
 
 export type StoryCategory =
@@ -72,6 +92,58 @@ export interface Story {
   supportingImages: GalleryImage[];
   galleryImages: GalleryImage[];
   photoCount: number;
+}
+
+// ─── Projects ───────────────────────────────────────────────────────────────────
+
+export type ProjectType = "web" | "mobile";
+
+export interface TechBadgeItem {
+  name: string;
+  category?: "frontend" | "backend" | "database" | "tools";
+}
+
+export interface ProjectFeature {
+  text: string;
+}
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  slug: string;
+  type: ProjectType;
+  subtitle?: string;
+  description: string;
+  shortDescription: string;
+  features: ProjectFeature[];
+  techStack: TechBadgeItem[];
+  coverImage: string;
+  mockupImage?: string;
+  screenshots?: ProjectImage[];
+  liveUrl?: string;
+  liveUrlLabel?: string;
+  playStoreUrl?: string;
+  appStoreUrl?: string;
+  githubUrl?: string;
+  caseStudyUrl?: string;
+  myRole?: string;
+  duration?: string;
+  problem?: string[];
+  solution?: string[];
+  challenges?: string[];
+  lessonsLearned?: string[];
+  // Web only
+  results?: string[];
+  // Mobile only
+  userFlow?: string[];
+  appArchitecture?: string[];
+  futureImprovements?: string[];
 }
 
 // ─── Contact ────────────────────────────────────────────────────────────────────

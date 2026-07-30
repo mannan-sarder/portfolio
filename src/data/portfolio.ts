@@ -154,7 +154,7 @@ export const CONTACT_INFO: ContactInfo = {
   email: "mailto:mannansarder00@gmail.com",
   linkedin: "https://linkedin.com/in/mannansarder",
   github: "https://github.com/mannan-sarder",
-  whatsapp: "https://wa.me/8801580377122",
+  whatsapp: "https://wa.me/@mannansarder",
   telegram: "https://t.me/mannan_sarder",
   isAvailable: true,
 };

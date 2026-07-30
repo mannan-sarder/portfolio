@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -19,14 +18,18 @@ const satoshi = localFont({
   fallback: ["system-ui", "sans-serif"],
 });
 
-// ─── Inter (Google) ──────────────────────────────────────────────────────────
+// ─── Inter (local) ───────────────────────────────────────────────────────────
 // Captions only — 400 600
+// Self-hosted (latin subset, static weights) — no build-time fetch to Google Fonts
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "600"],
+const inter = localFont({
+  src: [
+    { path: "../../public/fonts/Inter-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/Inter-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-inter",
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 // ─── Metadata ────────────────────────────────────────────────────────────────

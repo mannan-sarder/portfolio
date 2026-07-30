@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 // ─── Constants (module-level — never recreated) ──────────────────────────────
 
@@ -8,6 +10,7 @@ const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Stack", href: "#stack" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Behind The Coding", href: "#behind-the-coding" },
   { label: "Contact", href: "#contact" },
@@ -17,6 +20,10 @@ type NavHref = (typeof NAV_LINKS)[number]["href"];
 
 // Derived once at module load — never re-created per render
 const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace("#", ""));
+
+function isNavHref(hash: string): hash is NavHref {
+  return NAV_LINKS.some((l) => l.href === hash);
+}
 
 // ─── MS Monogram SVG ─────────────────────────────────────────────────────────
 // Overlapping M + S mark with blue→purple gradient — matches the approved logo
@@ -104,23 +111,31 @@ function DownloadIcon() {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<NavHref>("#home");
   const menuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
-  // ── IntersectionObserver-based active section detection ──────────────────
+  // ── IntersectionObserver-based active section detection (homepage only —
+  //    the section elements this observes don't exist on other routes) ──────
   useEffect(() => {
+    if (!isHome) return;
+
+    // Seed immediately from the URL hash so the dot reflects where we just
+    // arrived (e.g. cross-page nav to "/#contact") instead of showing
+    // whatever was active before this navigation, while observers spin up.
+    const hash = window.location.hash;
+    setActiveSection(isNavHref(hash) ? hash : "#home");
+
     const observers: IntersectionObserver[] = [];
-
-    // Track which sections are currently intersecting + their order
     const visibleMap = new Map<string, number>(); // id → top offset
+    const attached = new Set<string>();
+    let cancelled = false;
 
-    SECTION_IDS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
+    const attach = (id: string, el: Element) => {
       const obs = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -135,17 +150,65 @@ export default function Navbar() {
               Math.abs(a[1]) < Math.abs(b[1]) ? a : b
             )[0];
             setActiveSection(`#${topId}` as NavHref);
+            // Live scrollspy: keep the URL matching whatever's actually in
+            // view, on every scroll — not just clicks — so manual scrolling
+            // (which never went through handleNavClick) can't leave it stale.
+            window.history.replaceState(null, "", `#${topId}`);
           }
         },
         { rootMargin: "-80px 0px -40% 0px", threshold: 0 }
       );
-
       obs.observe(el);
       observers.push(obs);
-    });
+      attached.add(id);
+    };
 
-    return () => observers.forEach((o) => o.disconnect());
-  }, []);
+    // Try attaching to whatever section elements already exist; returns
+    // true once every section has an observer.
+    const tryAttachMissing = () => {
+      SECTION_IDS.forEach((id) => {
+        if (attached.has(id)) return;
+        const el = document.getElementById(id);
+        if (el) attach(id, el);
+      });
+      return attached.size === SECTION_IDS.length;
+    };
+
+    // Pass 1 — synchronous. Covers the normal case (sections already mounted:
+    // fresh load on "/", or scrolling while already home).
+    const allFoundSync = tryAttachMissing();
+
+    let rafId: number | null = null;
+    let mutationObserver: MutationObserver | null = null;
+
+    if (!allFoundSync) {
+      // Pass 2 — one frame later. Covers the common case right after a
+      // cross-page → home transition, where the new route's sections commit
+      // to the DOM a tick after `isHome` flips.
+      rafId = requestAnimationFrame(() => {
+        if (cancelled) return;
+        const allFoundRaf = tryAttachMissing();
+
+        // Pass 3 — fallback for anything still missing after that one frame
+        // (slower RSC streaming than a single tick accounts for). Watches
+        // the DOM and attaches as soon as each section actually appears,
+        // then disconnects itself — no arbitrary delay to tune.
+        if (!allFoundRaf) {
+          mutationObserver = new MutationObserver(() => {
+            if (tryAttachMissing()) mutationObserver?.disconnect();
+          });
+          mutationObserver.observe(document.body, { childList: true, subtree: true });
+        }
+      });
+    }
+
+    return () => {
+      cancelled = true;
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      mutationObserver?.disconnect();
+      observers.forEach((o) => o.disconnect());
+    };
+  }, [isHome]);
 
   // ── Scroll → header background ───────────────────────────────────────────
   useEffect(() => {
@@ -184,18 +247,43 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // ── Smooth scroll nav click ───────────────────────────────────────────────
+  // ── Smooth scroll nav click (homepage only — elsewhere, Link just navigates
+  //    to "/" + hash and the homepage's own hash-scroll effect takes over) ───
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      e.preventDefault();
       setMenuOpen(false);
+      if (!isHome) return;
+      e.preventDefault();
       const el = document.getElementById(href.replace("#", ""));
       if (el) {
         const top = el.getBoundingClientRect().top + window.scrollY - 80;
         window.scrollTo({ top, behavior: "smooth" });
       }
+      // preventDefault above cancels Link's own URL update too — keep the
+      // address bar in sync (replace, not push: scrolling between sections
+      // shouldn't spam browser history), and reflect the pick immediately
+      // rather than waiting for the observer to catch up mid-scroll.
+      window.history.replaceState(null, "", href);
+      if (isNavHref(href)) setActiveSection(href);
     },
-    []
+    [isHome]
+  );
+
+  // ── Route-aware link target + active-state (elsewhere, point back at "/"
+  //    and highlight by which page-family we're currently on) ───────────────
+  const linkHref = useCallback(
+    (href: NavHref) => (isHome ? href : `/${href}`),
+    [isHome]
+  );
+
+  const isActive = useCallback(
+    (href: NavHref) => {
+      if (isHome) return activeSection === href;
+      if (pathname.startsWith("/projects")) return href === "#projects";
+      if (pathname.startsWith("/stories")) return href === "#behind-the-coding";
+      return false;
+    },
+    [isHome, pathname, activeSection]
   );
 
   const handleGetResume = useCallback(() => {
@@ -219,23 +307,23 @@ export default function Navbar() {
         <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-6">
 
           {/* Logo — MS monogram SVG */}
-          <a
-            href="#home"
+          <Link
+            href={isHome ? "#home" : "/"}
             onClick={(e) => handleNavClick(e, "#home")}
             aria-label="MD Mannan Sarder — home"
             className="flex-shrink-0 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B5CF6]"
           >
             <MSLogo />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(({ label, href }) => {
-              const active = activeSection === href;
+              const active = isActive(href);
               return (
-                <a
+                <Link
                   key={href}
-                  href={href}
+                  href={linkHref(href)}
                   onClick={(e) => handleNavClick(e, href)}
                   aria-current={active ? "page" : undefined}
                   className={[
@@ -252,7 +340,7 @@ export default function Navbar() {
                       className="absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#8B5CF6]"
                     />
                   )}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -322,11 +410,11 @@ export default function Navbar() {
       >
         <nav aria-label="Mobile navigation" className="mt-4 flex flex-col gap-1">
           {NAV_LINKS.map(({ label, href }) => {
-            const active = activeSection === href;
+            const active = isActive(href);
             return (
-              <a
+              <Link
                 key={href}
-                href={href}
+                href={linkHref(href)}
                 onClick={(e) => handleNavClick(e, href)}
                 aria-current={active ? "page" : undefined}
                 className={[
@@ -342,7 +430,7 @@ export default function Navbar() {
                   <span aria-hidden="true" className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#8B5CF6]" />
                 )}
                 {label}
-              </a>
+              </Link>
             );
           })}
         </nav>
