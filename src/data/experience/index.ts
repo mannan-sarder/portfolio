@@ -1,7 +1,8 @@
 import type { ExperienceItem } from "@/types";
 import { roboTechValley } from "./robo-tech-valley";
-import { education } from "./education";
 
+import { education } from "./education";
+import { roboTechValley2 } from "./robo-tech-valley2";
 // ─── Registry ───────────────────────────────────────────────────────────────
 // Add a new entry by creating `src/data/experience/<name>.ts` (copy an
 // existing file as a template) and adding it to this array — most recent
@@ -9,8 +10,17 @@ import { education } from "./education";
 
 export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   roboTechValley,
+  roboTechValley2,
   education,
 ];
+
+// ─── Featured (Homepage Preview) ────────────────────────────────────────────
+// Only items with `featured: true` appear in the homepage Experience section.
+// Mark exactly 2 entries as featured — one per "spotlight" card shown before
+// the "View All" button.
+
+export const FEATURED_EXPERIENCE_ITEMS: ExperienceItem[] =
+  EXPERIENCE_ITEMS.filter((e) => e.featured);
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -22,7 +32,9 @@ export function getExperienceById(id: string): ExperienceItem | undefined {
   return EXPERIENCE_ITEMS.find((e) => e.id === id);
 }
 
-export function getExperienceByType(type: ExperienceItem["type"]): ExperienceItem[] {
+export function getExperienceByType(
+  type: ExperienceItem["type"]
+): ExperienceItem[] {
   return EXPERIENCE_ITEMS.filter((e) => e.type === type);
 }
 

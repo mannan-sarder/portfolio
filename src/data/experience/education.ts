@@ -5,10 +5,12 @@ import { PERSON } from "@/data/portfolio";
 export const education: ExperienceItem = {
   id: "bsc-cse-education",
   type: "education",
+  featured: true,
   role: PERSON.education,
   organization: "Green University of Bangladesh",
   period: "2022 – 2026",
-  location: "Purbachal American City, Kanchan, Rupganj, Narayanganj, Dhaka, Bangladesh",
+  location:
+    "Purbachal American City, Kanchan, Rupganj, Narayanganj, Dhaka, Bangladesh",
   image: "/images/experience/gub logo.webp",
   points: [
     "Focused on full-stack web development, Android application development, and applied AI/Computer Vision",

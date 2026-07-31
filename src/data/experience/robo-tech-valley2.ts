@@ -1,9 +1,9 @@
 import type { ExperienceItem } from "@/types";
 
-export const roboTechValley: ExperienceItem = {
-  id: "robo-tech-valley-industrial-trainee",
+export const roboTechValley2: ExperienceItem = {
+  id: "robo-tech-valley2-industrial-trainee",
   type: "work",
-  featured: true,
+  featured: false,
   role: "Industrial Trainee (AI & Computer Vision)",
   organization: "Robo Tech Valley",
   employmentType: "Internship",
@@ -26,4 +26,4 @@ export const roboTechValley: ExperienceItem = {
   ],
 };
 
-export default roboTechValley;
+export default roboTechValley2;

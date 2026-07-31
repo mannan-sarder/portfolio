@@ -51,6 +51,8 @@ export type WorkMode = "On-site" | "Remote" | "Hybrid";
 export interface ExperienceItem {
   id: string;
   type: ExperienceType;
+  /** Set to true to show this entry in the homepage preview (max 2 shown). */
+  featured?: boolean;
   role: string;
   organization: string;
   employmentType?: string; // e.g. "Internship", "Full-time"
