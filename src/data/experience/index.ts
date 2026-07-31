@@ -1,8 +1,6 @@
 import type { ExperienceItem } from "@/types";
 import { roboTechValley } from "./robo-tech-valley";
-
 import { education } from "./education";
-import { roboTechValley2 } from "./robo-tech-valley2";
 // ─── Registry ───────────────────────────────────────────────────────────────
 // Add a new entry by creating `src/data/experience/<name>.ts` (copy an
 // existing file as a template) and adding it to this array — most recent
@@ -10,7 +8,6 @@ import { roboTechValley2 } from "./robo-tech-valley2";
 
 export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   roboTechValley,
-  roboTechValley2,
   education,
 ];
 
