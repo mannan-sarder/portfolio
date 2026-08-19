@@ -64,13 +64,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     platform: "github",
     label: "GitHub",
-    href: "https://github.com/mannan-sarder",
+    href: "https://github.com/mannan-sarder/",
     icon: "github",
   },
   {
     platform: "linkedin",
     label: "LinkedIn",
-    href: "https://linkedin.com/in/mannansarder",
+    href: "https://linkedin.com/in/mannansarder/",
     icon: "linkedin",
   },
   {
