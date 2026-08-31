@@ -7,6 +7,7 @@ import type * as THREE from "three";
 import Image from "next/image";
 import Link from "next/link";
 import NeuralAurora from "@/components/sections/NeuralAurora";
+import { CONTACT_INFO } from "@/data/portfolio";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -183,9 +184,9 @@ const canvasVariants = {
 // ─── Social Data ──────────────────────────────────────────────────────────────
 
 const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com", icon: <Image src="/icons/github.svg" alt="GitHub" width={20} height={20} className="w-5 h-5" /> },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} className="w-5 h-5" /> },
-  { label: "Email", href: "mailto:hello@mannan.dev", icon: <Image src="/icons/email.svg" alt="Email" width={20} height={20} className="w-5 h-5" /> },
+  { label: "GitHub", href: CONTACT_INFO.github, icon: <Image src="/icons/github.svg" alt="GitHub" width={20} height={20} className="w-5 h-5" /> },
+  { label: "LinkedIn", href: CONTACT_INFO.linkedin, icon: <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} className="w-5 h-5" /> },
+  { label: "Email", href: CONTACT_INFO.email, icon: <Image src="/icons/email.svg" alt="Email" width={20} height={20} className="w-5 h-5" /> },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────

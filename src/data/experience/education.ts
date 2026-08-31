@@ -1,7 +1,6 @@
 import type { ExperienceItem } from "@/types";
 import { PERSON } from "@/data/portfolio";
 
-// Institution/dates are placeholders — degree name is real (PERSON.education).
 export const education: ExperienceItem = {
   id: "bsc-cse-education",
   type: "education",
