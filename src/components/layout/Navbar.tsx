@@ -286,11 +286,6 @@ export default function Navbar() {
     [isHome, pathname, activeSection]
   );
 
-  const handleGetResume = useCallback(() => {
-    // Ensure public/resume.pdf exists in your Next.js project
-    window.open("/resume.pdf", "_blank", "noopener,noreferrer");
-  }, []);
-
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
     <>
@@ -347,8 +342,10 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
-            <button
-              onClick={handleGetResume}
+            <Link
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Download resume (opens in new tab)"
               className={[
                 "font-inter flex items-center gap-2 rounded-xl border border-[#2A2A2A]",
@@ -360,7 +357,7 @@ export default function Navbar() {
             >
               <DownloadIcon />
               Get Resume
-            </button>
+            </Link>
           </div>
 
           {/* Hamburger — mobile only */}
@@ -436,8 +433,11 @@ export default function Navbar() {
         </nav>
 
         <div className="mt-auto border-t border-[#2A2A2A] pt-6">
-          <button
-            onClick={() => { setMenuOpen(false); handleGetResume(); }}
+          <Link
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
             className={[
               "font-inter flex w-full items-center justify-center gap-2",
               "rounded-xl border border-[#2A2A2A] px-4 py-3",
@@ -448,7 +448,7 @@ export default function Navbar() {
           >
             <DownloadIcon />
             Get Resume
-          </button>
+          </Link>
         </div>
       </div>
     </>
