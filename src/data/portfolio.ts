@@ -16,11 +16,11 @@ export const PERSON: PersonInfo = {
   role: "Software Engineer &",
   roleHighlight: "Full Stack Developer",
   tagline:
-    "I build modern web applications and enjoy turning ideas into useful digital products.",
+    "Full-stack engineer who designs the database first, then builds outward — API, business logic, UI.",
   bio: [
-    "I'm a Software Engineer who loves turning ideas into real-world digital products. I enjoy building clean, scalable and user-friendly web applications.",
-    "I'm passionate about problem solving, continuous learning and creating solutions that make an impact.",
-    "Currently, I'm focused on full stack development and exploring modern technologies.",
+    "I'm a full-stack engineer who cares more about what a system does under load than how it looks in a demo. I usually start from the database schema and build outward — API, business logic, UI — so every layer reflects how the pieces will actually be used together.",
+    "My two largest projects reflect that approach: RetailSync Hub, a four-role retail platform with transaction-safe checkout, real-time rider tracking over Server-Sent Events, and a 30-table schema migrated from a legacy PHP system; and MediMind, an offline Android app built around a custom OCR parsing engine that reads medical reports and explains them in Bangla and English against a WHO/NIH-sourced dataset.",
+    "Outside web and mobile, I've also worked hands-on with applied computer vision — building a YOLOv8-based detection pipeline during an internship at Robo Tech Valley. Right now I'm focused on deepening my system-design skills and shipping software that holds up in production, not just in a demo.",
   ],
   education: "BSc in Computer Science & Engineering",
   location: "Bangladesh",
@@ -29,10 +29,10 @@ export const PERSON: PersonInfo = {
   resumeUrl: "/resume.pdf",
   profileImage: "/images/profile/mannan.jpg",
   currentFocus: [
-    "Web Development",
     "Full Stack Development",
+    "System Architecture",
+    "Applied AI & Computer Vision",
     "Software Engineering",
-    "UI/UX Design",
     "Continuous Learning",
   ],
 };
@@ -82,6 +82,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 // ─── Tech Stack ─────────────────────────────────────────────────────────────
+// Kept in sync with what's actually shipped in RetailSync Hub and MediMind,
+// not just a generic list — every entry here is a technology exercised end
+// to end in a real, working project.
 
 export const STACK_CARDS: StackCard[] = [
   {
@@ -103,14 +106,14 @@ export const STACK_CARDS: StackCard[] = [
     icon: "server",
     items: [
       { name: "Node.js", icon: "/icons/nodejs.svg" },
-      { name: "PHP", icon: "/icons/php.svg" },
+      { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
       { name: "MySQL", icon: "/icons/mysql.svg" },
+      { name: "PHP", icon: "/icons/php.svg" },
     ],
     secondary: {
       label: "Also familiar with",
       items: [
         { name: "MongoDB", icon: "/icons/mongodb.svg" },
-        { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
       ],
     },
   },
