@@ -19,7 +19,7 @@ export const PERSON: PersonInfo = {
     "Full-stack engineer who designs the database first, then builds outward — API, business logic, UI.",
   bio: [
     "I'm a full-stack engineer who cares more about what a system does under load than how it looks in a demo. I usually start from the database schema and build outward — API, business logic, UI — so every layer reflects how the pieces will actually be used together.",
-    "My two largest projects reflect that approach: RetailSync Hub, a four-role retail platform with transaction-safe checkout, real-time rider tracking over Server-Sent Events, and a 30-table schema migrated from a legacy PHP system; and MediMind, an offline Android app built around a custom OCR parsing engine that reads medical reports and explains them in Bangla and English against a WHO/NIH-sourced dataset.",
+    "My two largest projects reflect that approach: RetailSync Hub, a four-role retail platform with transaction-safe checkout, real-time rider tracking over Server-Sent Events, and a 30+ table schema migrated from a legacy PHP system; and MediMind, an offline Android app built around a custom OCR parsing engine that reads medical reports and explains them in Bangla and English against a WHO/NIH-sourced dataset.",
     "Outside web and mobile, I've also worked hands-on with applied computer vision — building a YOLOv8-based detection pipeline during an internship at Robo Tech Valley. Right now I'm focused on deepening my system-design skills and shipping software that holds up in production, not just in a demo.",
   ],
   education: "BSc in Computer Science & Engineering",

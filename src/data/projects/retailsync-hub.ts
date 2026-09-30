@@ -7,7 +7,7 @@ export const retailSyncHub: Project = {
   type: "web",
   subtitle: "Integrated Retail & E-commerce Platform",
   description:
-    "A production-grade full-stack retail platform built with Next.js 15 and PostgreSQL, supporting four distinct roles — Admin, Employee, Delivery, and Customer — each with their own portal, dedicated NextAuth v5 session, and permission set. The database is a 30-table Prisma schema covering users, products, orders, delivery, HR, and audit data. Features include real-time rider tracking via Server-Sent Events, an in-store POS terminal with automatic cash-memo receipts, a dynamic analytics dashboard, a full coupon engine, order lifecycle management, and a custom 438-line MySQL → PostgreSQL migration script ported from a legacy PHP system.",
+    "A production-grade full-stack retail platform built with Next.js 15 and PostgreSQL, supporting four distinct roles — Admin, Employee, Delivery, and Customer — each with their own portal, dedicated NextAuth v5 session, and permission set. The database is a 30+ table Prisma schema covering users, products, orders, delivery, HR, and audit data. Features include real-time rider tracking via Server-Sent Events, an in-store POS terminal with automatic cash-memo receipts, a dynamic analytics dashboard, a full coupon engine, order lifecycle management, and a custom 438-line MySQL → PostgreSQL migration script ported from a legacy PHP system.",
   shortDescription:
     "4-role retail & e-commerce platform with real-time rider tracking, POS terminal, and dynamic analytics.",
   features: [
@@ -18,7 +18,7 @@ export const retailSyncHub: Project = {
     { text: "Live GPS markers on Leaflet maps for both riders and customers, with a shared personIconHtml() marker builder (photo + name label) and manual HTML-escaping to prevent XSS from user-supplied names in map markers" },
     { text: "Haversine formula for on-the-fly delivery distance calculation, plus a formatDistance() helper for meters-vs-km display" },
     { text: "In-store POS terminal: validates stock and product existence before touching the DB, computes per-line tax and subtotal, supports percentage/fixed discounts capped at the order total, and accepts cash, card, bKash, or Nagad" },
-    { text: "Every POS sale is written as a real Order (orderType: offline) inside a single Prisma transaction — stock deduction, inventory ledger entry, low-stock alert (threshold: 5 units), Payment record (status: completed), and a CashMemo receipt (linked to the cashier's Employee row when available) all commit together" },
+    { text: "Every POS sale is written as a real Order (orderType: offline) inside a single Prisma transaction — stock deduction, inventory ledger entry, low-stock alert (fires when stock falls below 5 units), Payment record (status: completed), and a CashMemo receipt (linked to the cashier's Employee row when available) all commit together" },
     { text: "Online checkout runs the same transactional pattern: stock validation → coupon evaluation (percentage/fixed, min-cart threshold, max-discount cap, expiry window, usage limit) → order + payment + stock decrement + inventory ledger + cart clear + staff notification, all inside one prisma.$transaction" },
     { text: "Dynamic analytics dashboard with auto-switching hourly/daily revenue buckets by date range" },
     { text: "Top-selling products and top-performing rider rankings" },
@@ -33,7 +33,7 @@ export const retailSyncHub: Project = {
     { text: "Employee management with soft-delete, trash, and restore" },
     { text: "Attendance check-in/check-out for staff" },
     { text: "Site-wide settings panel for admin" },
-    { text: "Every API route validates its input with a Zod schema and enforces its own role check before touching Prisma — a consistent pattern across 40+ route handlers" },
+    { text: "60 API route handlers, each protected route enforcing its own role check, with Zod schema validation on the core write endpoints (checkout, POS sales, cart, coupons, order status and rider assignment, reviews, profile and staff management)" },
   ],
   techStack: [
     { name: "Next.js 15", category: "frontend" },
@@ -82,14 +82,14 @@ export const retailSyncHub: Project = {
     "Migrating years of existing data from the old MySQL system without downtime or data loss was a major concern.",
   ],
   solution: [
-    "Rebuilt the entire system from scratch using Next.js 15 and PostgreSQL with a 30-table Prisma schema, introducing four dedicated role-based portals (Admin, Employee, Delivery, Customer) each with its own NextAuth v5 session, its own cookie namespace, and its own permission set.",
+    "Rebuilt the entire system from scratch using Next.js 15 and PostgreSQL with a 30+ table Prisma schema, introducing four dedicated role-based portals (Admin, Employee, Delivery, Customer) each with its own NextAuth v5 session, its own cookie namespace, and its own permission set.",
     "Implemented real-time rider tracking using Server-Sent Events backed by a server-side EventEmitter, so admins see delivery riders on a live map the instant their status changes, and customers can optionally share their own location for the rider to find them.",
     "Wrote a custom 438-line MySQL → PostgreSQL migration script that ported all 30+ tables from the legacy system, preserved foreign key relationships, and reset auto-increment sequences — making the cutover seamless.",
     "Unified in-store and online sales into one order pipeline: the POS terminal writes a real Order + Payment + CashMemo in the same Prisma transaction used by online checkout, so every sale — counter or web — feeds the same reports and stock ledger.",
   ],
   challenges: [
     "Running staff and customer NextAuth sessions in the same browser required a dual-realm architecture: two separate NextAuth() instances, each with its own basePath (/api/auth/customer vs /api/auth/staff) and its own cookie names, so neither session can be read, refreshed, or invalidated by the other's code path.",
-    "Server-Sent Events needed a shared in-memory EventEmitter on the server (stored on the global object to survive Next.js module reloads) to broadcast rider online/offline status to all connected admin clients simultaneously, plus a 20-second keep-alive ping to survive proxy/load-balancer idle timeouts.",
+    "Server-Sent Events needed a shared in-memory EventEmitter on the server (held on the global object so one shared instance serves every route handler) to broadcast rider online/offline status to all connected admin and employee clients simultaneously, plus a 20-second keep-alive ping to survive proxy idle timeouts. It is a single-instance design; a multi-instance deployment would swap it for Redis pub/sub.",
     "The analytics chart needed to auto-detect whether to render hourly or daily buckets based on the selected date range, requiring dynamic aggregation logic on the backend.",
     "XSS protection in the Leaflet map was critical since user-generated content (names, profile images) was being rendered in custom HTML map markers via innerHTML — solved with a small hand-written escapeHtml() used by every marker builder.",
     "Keeping the free-text Product.category field (kept for backward compatibility with existing/imported products) in sync with a proper Category table for the filter dropdown, without a foreign key forcing a data migration.",
@@ -106,7 +106,7 @@ export const retailSyncHub: Project = {
     "Replaced a fragmented PHP system with a unified platform covering storefront, staff operations, delivery, and analytics in one codebase.",
     "Staff can now assign delivery riders and track them live on a map without any third-party service.",
     "The POS terminal allows in-store sales to flow through the same order pipeline as online orders, giving a unified sales view.",
-    "All 30+ legacy MySQL tables were migrated to PostgreSQL with relationships and sequences intact, with zero data loss during cutover.",
+    "All 30+ legacy MySQL tables were ported to PostgreSQL by a custom migration script, with foreign-key relationships and auto-increment sequences preserved.",
   ],
 };
 

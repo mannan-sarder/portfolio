@@ -117,7 +117,7 @@ export const medimind: Project = {
     "OCR quality is highly dependent on image resolution — small improvements in pixel cap had a large impact on accuracy for dense lab report layouts.",
     "Bilingual support goes beyond translation — every piece of content in the dataset (explanations, doctor questions, status summaries) needs dedicated Bengali and English fields.",
     "Offline-first architecture improves both user trust and performance, especially for health-related apps where data privacy matters.",
-    "Room migrations should always be additive where possible — three migrations in and no user has ever lost report history to a schema change.",
+    "Room migrations should stay additive — the schema went through three migrations (v1 to v4) with destructive migration explicitly forbidden, so an app update never wipes stored reports.",
   ],
   futureImprovements: [
     "Add an AI-powered chatbot for answering report-related health questions (originally planned with Google Gemini API).",
