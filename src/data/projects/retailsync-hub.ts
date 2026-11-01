@@ -5,11 +5,11 @@ export const retailSyncHub: Project = {
   title: "RetailSync Hub",
   slug: "retailsync-hub",
   type: "web",
-  subtitle: "Integrated Retail & E-commerce Platform",
+  subtitle: "Integrated Retail & E-Commerce Management Platform",
   description:
     "A production-grade full-stack retail platform built with Next.js 15 and PostgreSQL, supporting four distinct roles — Admin, Employee, Delivery, and Customer — each with their own portal, dedicated NextAuth v5 session, and permission set. The database is a 30+ table Prisma schema covering users, products, orders, delivery, HR, and audit data. Features include real-time rider tracking via Server-Sent Events, an in-store POS terminal with automatic cash-memo receipts, a dynamic analytics dashboard, a full coupon engine, order lifecycle management, and a custom 438-line MySQL → PostgreSQL migration script ported from a legacy PHP system.",
   shortDescription:
-    "4-role retail & e-commerce platform with real-time rider tracking, POS terminal, and dynamic analytics.",
+    "A four-role retail and e-commerce platform with transaction-safe checkout, real-time rider tracking through Server-Sent Events (SSE), an in-store POS terminal, dynamic analytics, and a 30+ table relational database.",
   features: [
     { text: "4-role system: Admin, Employee, Delivery, Customer — each with a dedicated portal" },
     { text: "Dual-realm NextAuth v5 architecture — Customer and Staff each run their own NextAuth instance with separate basePath, separate __Secure-/__Host- prefixed cookies, and separate JWT config, so a staff session and a customer session coexist in one browser without ever colliding" },

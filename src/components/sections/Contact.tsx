@@ -763,7 +763,7 @@ export default function Contact() {
             >
               Let&apos;s Build Something{" "}
               <span className="bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent">
-                Together.
+                Useful
               </span>
             </motion.h2>
 
@@ -771,9 +771,7 @@ export default function Contact() {
               variants={itemVariants}
               className="text-[20px] font-normal leading-[1.8] text-[#A1A1AA] font-geist max-w-[480px]"
             >
-              Whether it&apos;s a project, collaboration,
-              <br />
-              or just a conversation, feel free to reach out.
+              Whether it&apos;s a software project, a collaboration, or a career opportunity, I&apos;d be glad to connect and talk about how we can work together.
             </motion.p>
           </div>
 
@@ -848,21 +846,20 @@ export default function Contact() {
                 </svg>
               </div>
               <h3 className="font-satoshi text-[26px] font-bold text-white leading-[1.2] mb-3">
-                Have a project<br />in mind?
+                Have a Project or<br />Opportunity in Mind?
               </h3>
               <p className="text-[15px] text-[#A1A1AA] font-geist leading-[1.7] mb-6">
-                I&apos;m always open to discussing new ideas,<br />
-                exciting projects, or opportunities<br />
-                to be part of your vision.
+                I&apos;m open to software engineering roles,<br />
+                freelance projects, and technical collaborations.
               </p>
             </div>
             <div className="relative z-10">
               <a
                 href={CONTACT_INFO.email}
                 className="inline-flex items-center gap-2 h-[52px] px-7 rounded-2xl bg-gradient-to-r from-blue-500 to-violet-600 text-white text-[15px] font-semibold font-geist hover:opacity-90 active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111]"
-                aria-label="Get in touch via email"
+                aria-label="Start a conversation via email"
               >
-                Get In Touch
+                Start a Conversation
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -870,10 +867,10 @@ export default function Contact() {
             </div>
           </Card>
 
-          {/* Card: Connect With Me */}
+          {/* Card: Find Me Online */}
           <Card index={2}>
             <h3 className="font-satoshi text-[18px] font-semibold text-white mb-2">
-              Connect With Me
+              Find Me Online
             </h3>
             <div className="w-8 h-px bg-violet-500 mb-6" aria-hidden="true" />
             <div className="grid grid-cols-2 gap-x-4 gap-y-5">
@@ -916,10 +913,10 @@ export default function Contact() {
             <div
               className="flex items-center justify-between rounded-2xl border border-[#2A2A2A] bg-white/[0.03] px-5 py-4 mb-4"
               style={{ pointerEvents: "none", cursor: "default" }}
-              aria-label="Open to Collaborations: ON"
+              aria-label="Open to Opportunities: ON"
             >
               <span className="text-[15px] font-medium text-white font-geist leading-tight">
-                Open to<br />Collaborations
+                Open to<br />Opportunities
               </span>
               {/* Toggle pill */}
               <div className="relative w-12 h-7 rounded-full bg-emerald-500 flex-shrink-0" style={{ boxShadow: "0 0 12px rgba(16,185,129,0.5)" }}>
@@ -936,8 +933,7 @@ export default function Contact() {
             <div className="w-full h-px bg-[#2A2A2A] mb-5" aria-hidden="true" />
 
             <p className="text-[15px] text-[#A1A1AA] font-geist leading-[1.7]">
-              I&apos;m currently available for<br />
-              new projects and opportunities.
+              Available for full-time Software Engineering roles, freelance projects, and collaborative opportunities.
             </p>
           </Card>
 

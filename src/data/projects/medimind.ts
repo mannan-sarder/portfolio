@@ -5,11 +5,11 @@ export const medimind: Project = {
   title: "MediMind",
   slug: "medimind",
   type: "mobile",
-  subtitle: "Smart Medical Report Reader & Health Assistant",
+  subtitle: "Offline Medical Report Analyzer & Health Assistant",
   description:
     "A fully offline Android app that scans medical test reports using OCR, extracts patient data and test values, compares them against a WHO/NIH-sourced standard range dataset (80+ tests), and presents results in both Bangla and English. Under the hood, a custom ~1,500-line regex and spatial-parsing engine (ReportParser) turns raw, inconsistently-formatted OCR text into structured test entries, while a two-tier fuzzy-matching analysis engine (ReportAnalyzer) cross-references each value against the local knowledge base. Users can compare two reports side by side with trend charts, track history, and set medicine reminders. APK available for direct download via GitHub Releases: https://github.com/mannan-sarder/medimind/releases/latest",
   shortDescription:
-    "Offline medical report scanner with OCR analysis, bilingual results, and report comparison.",
+    "An offline Android application that scans medical reports with on-device OCR, shows results in Bangla and English, compares reports, and performs automated reference range analysis.",
   features: [
     { text: "Scan reports via camera or upload from gallery, with automatic EXIF-based image rotation correction" },
     { text: "Fully offline OCR-based data extraction using Google ML Kit Text Recognition" },

@@ -54,10 +54,10 @@ export default function BehindTheCoding() {
               backgroundClip: "text",
             }}
           >
-            Life Outside the IDE.
+            Life Beyond the Code
           </motion.h2>
           <motion.p variants={itemVariants} className="text-[16px] text-[#A1A1AA] font-geist leading-[1.7] max-w-[360px]">
-            A collection of moments, places, and experiences that inspire me beyond coding.
+            Exploring new places, photography, and different landscapes keep me curious, creative, and inspired beyond software development.
           </motion.p>
         </motion.div>
 
@@ -133,7 +133,7 @@ export default function BehindTheCoding() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center text-[14px] text-[#555] font-geist mt-16"
         >
-          💜 Collecting memories, one journey at a time.
+          💜 Collecting experiences and gaining new perspectives, one journey at a time.
         </motion.p>
       </div>
     </section>

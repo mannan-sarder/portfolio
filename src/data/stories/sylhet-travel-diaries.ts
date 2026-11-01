@@ -6,7 +6,7 @@ export const sylhetTravelDiaries: Story = {
   title: "Sylhet Travel Diaries",
   category: "Travel",
   summary:
-    "A spontaneous escape from Dhaka to the enchanting landscapes of Sylhet. From the rocky riverbanks of Jaflong and the mystical swamp forest of Ratargul to the crystal-clear waters of Shada Pathor, this journey with 13 friends was a celebration of nature, adventure, and lifelong memories.",
+    "A trip from Dhaka to Sylhet with 13 friends: the rocky riverbanks of Jaflong, the peaceful Ratargul Swamp Forest, and the crystal-clear waters of Shada Pathor. A journey full of exploration, adventure, and unforgettable memories.",
   body: [
     "What happens when 13 friends decide to escape the city for a while? Magic! Our journey began at the Dhaka Railway Station on a quiet night. With excitement in our hearts and a train ticket in hand, we embarked on an overnight adventure. The train ride was the perfect start, filled with laughter, shared stories, and delicious food brought from home.",
     "By 5:00 AM, we arrived in the beautiful city of Sylhet. After a quick breakfast, we headed straight towards Jaflong. The drive was mesmerizing, with mountains greeting us along the way. Upon reaching, we took a boat ride to the border area—an experience like no other. Walking on the rocky riverbed and witnessing the crystal-clear water with the Indian border just 300-400 meters away left us in awe. The waterfalls added a touch of wonder to the day. We returned to the city at night, feeling exhausted but happy, followed by a visit to the sacred shrine and a long, memorable night of adda (chats) with the group.",

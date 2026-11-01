@@ -356,7 +356,7 @@ export default function Navbar() {
               ].join(" ")}
             >
               <DownloadIcon />
-              Get Resume
+              View Resume
             </Link>
           </div>
 
@@ -447,7 +447,7 @@ export default function Navbar() {
             ].join(" ")}
           >
             <DownloadIcon />
-            Get Resume
+            View Resume
           </Link>
         </div>
       </div>

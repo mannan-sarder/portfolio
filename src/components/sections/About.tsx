@@ -293,10 +293,10 @@ export default function About() {
             {/* Main heading */}
             <motion.h2
               variants={itemVariants}
-              className="text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-tight text-white font-satoshi mb-8 whitespace-nowrap"
+              className="text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-tight text-white font-satoshi mb-8"
             >
-              Getting to know me
-              <span className="text-[#8B5CF6]">.</span>
+              Built for Real Use,{" "}
+              <span className="text-[#8B5CF6]">Not Just Demos</span>
             </motion.h2>
 
             {/* Bio paragraphs */}

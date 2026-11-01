@@ -286,7 +286,7 @@ export default function Hero() {
             >
               Software Engineer &<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]">
-                Full Stack Developer
+                Full-Stack Developer
               </span>
             </motion.p>
 
@@ -296,7 +296,7 @@ export default function Hero() {
               variants={itemVariants}
               className="mt-4 max-w-[560px] text-[16px] font-normal leading-[28px] text-[#A1A1AA]"
             >
-              I build modern web applications and enjoy turning ideas into useful digital products.
+              I build full-stack web platforms, Android applications, and applied AI systems — starting from the database and working outward to the interface.
             </motion.p>
 
             {/* CTA buttons */}
@@ -312,7 +312,7 @@ export default function Hero() {
                 style={{ background: "linear-gradient(180deg, #3B82F6, #8B5CF6)" }}
               >
                 <DownloadIcon />
-                Resume
+                View Resume
               </Link>
 
               <Link
@@ -385,7 +385,7 @@ export default function Hero() {
         transition={{ delay: 1.8, duration: 0.6 }}
         aria-hidden="true"
       >
-        <span className="text-[10px] font-medium tracking-[0.2em] uppercase">Scroll</span>
+        <span className="text-[10px] font-medium tracking-[0.2em] uppercase">Scroll to Explore</span>
         <div className="flex h-9 w-5 items-start justify-center rounded-full border border-white/15 p-1">
           <motion.div
             className="h-1.5 w-1 rounded-full bg-violet-400/60"

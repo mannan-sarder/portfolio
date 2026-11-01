@@ -71,12 +71,12 @@ export default function Experience() {
             variants={itemVariants}
             className="font-satoshi text-[clamp(44px,5.5vw,64px)] font-extrabold leading-[1.05] tracking-tight text-white mb-5"
           >
-            My{" "}
+            Experience &amp;{" "}
             <span
               className="inline bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent"
-              aria-label="Journey"
+              aria-label="Education"
             >
-              Journey.
+              Education
             </span>
           </motion.h2>
 
@@ -84,7 +84,7 @@ export default function Experience() {
             variants={itemVariants}
             className="max-w-[700px] text-[18px] font-normal leading-relaxed text-[#A1A1AA] font-geist"
           >
-            A timeline of roles and education that shaped how I build software.
+            The professional and academic experience that shaped how I approach software engineering and problem-solving.
           </motion.p>
         </motion.div>
 

@@ -43,8 +43,8 @@ export default function ProjectsListing({
 
         <div className="flex items-center justify-center gap-3">
           <TabButton label="All" active={tab === "all"} onClick={() => setTab("all")} />
-          <TabButton label="Web" active={tab === "web"} onClick={() => setTab("web")} />
-          <TabButton label="Mobile" active={tab === "mobile"} onClick={() => setTab("mobile")} />
+          <TabButton label="Web Development" active={tab === "web"} onClick={() => setTab("web")} />
+          <TabButton label="Mobile Apps" active={tab === "mobile"} onClick={() => setTab("mobile")} />
         </div>
       </div>
 
@@ -66,7 +66,7 @@ export default function ProjectsListing({
                 </div>
               </div>
               <div>
-                <SubHeader icon={<PhoneIcon />} title="Mobile Apps" subtitle="Cross-platform mobile applications" />
+                <SubHeader icon={<PhoneIcon />} title="Mobile Apps" subtitle="Android applications and on-device intelligent systems" />
                 <div className="flex flex-col gap-6">
                   {mobileProjects.map((p, i) => <ProjectCard key={p.id} project={p} index={i} />)}
                 </div>

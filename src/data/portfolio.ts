@@ -14,13 +14,13 @@ export const PERSON: PersonInfo = {
   shortName: "Mannan",
   initials: "MS",
   role: "Software Engineer &",
-  roleHighlight: "Full Stack Developer",
+  roleHighlight: "Full-Stack Developer",
   tagline:
     "Full-stack engineer who designs the database first, then builds outward — API, business logic, UI.",
   bio: [
-    "I'm a full-stack engineer who cares more about what a system does under load than how it looks in a demo. I usually start from the database schema and build outward — API, business logic, UI — so every layer reflects how the pieces will actually be used together.",
-    "My two largest projects reflect that approach: RetailSync Hub, a four-role retail platform with transaction-safe checkout, real-time rider tracking over Server-Sent Events, and a 30+ table schema migrated from a legacy PHP system; and MediMind, an offline Android app built around a custom OCR parsing engine that reads medical reports and explains them in Bangla and English against a WHO/NIH-sourced dataset.",
-    "Outside web and mobile, I've also worked hands-on with applied computer vision — building a YOLOv8-based detection pipeline during an internship at Robo Tech Valley. Right now I'm focused on deepening my system-design skills and shipping software that holds up in production, not just in a demo.",
+    "I'm a software engineer who cares more about how a system behaves under real use than how it looks in a demo. I start from the data model and build outward — APIs, business logic, then interface — so every layer reflects how the pieces are actually used together.",
+    "Two projects show this approach. RetailSync Hub is a four-role retail and e-commerce platform with transaction-safe workflows, real-time rider tracking through Server-Sent Events (SSE), and a 30+ table database architecture migrated from a legacy PHP system to PostgreSQL. MediMind is an offline Android application with a custom on-device OCR engine that analyzes medical reports and presents bilingual results in Bangla and English, using a WHO/NIH-sourced dataset.",
+    "I also have practical experience in applied AI and computer vision. During my internship at Robo Tech Valley, I worked on a YOLOv8-based fruit freshness detection system, including model training, dataset processing, real-time inference, and object tracking. I'm continuing to deepen my knowledge of system design, software architecture, and scalable application development, with a focus on software that performs reliably beyond the development environment.",
   ],
   education: "BSc in Computer Science & Engineering",
   location: "Bangladesh",
@@ -89,7 +89,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const STACK_CARDS: StackCard[] = [
   {
     id: "frontend",
-    title: "Frontend",
+    title: "Frontend Architecture",
     icon: "monitor",
     items: [
       { name: "HTML5", icon: "/icons/html5.svg" },
@@ -102,7 +102,7 @@ export const STACK_CARDS: StackCard[] = [
   },
   {
     id: "backend",
-    title: "Backend",
+    title: "Backend & Databases",
     icon: "server",
     items: [
       { name: "Node.js", icon: "/icons/nodejs.svg" },
@@ -111,7 +111,7 @@ export const STACK_CARDS: StackCard[] = [
       { name: "PHP", icon: "/icons/php.svg" },
     ],
     secondary: {
-      label: "Also familiar with",
+      label: "Also Familiar With",
       items: [
         { name: "MongoDB", icon: "/icons/mongodb.svg" },
       ],
@@ -119,7 +119,7 @@ export const STACK_CARDS: StackCard[] = [
   },
   {
     id: "languages",
-    title: "Languages",
+    title: "Core Programming Languages",
     icon: "code2",
     items: [
       { name: "JavaScript", icon: "/icons/javascript.svg" },
@@ -134,7 +134,7 @@ export const STACK_CARDS: StackCard[] = [
   },
   {
     id: "tools",
-    title: "Tools",
+    title: "Development & DevOps Tools",
     icon: "wrench",
     items: [
       { name: "Git", icon: "/icons/git.svg" },

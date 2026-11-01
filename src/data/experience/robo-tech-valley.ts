@@ -4,7 +4,7 @@ export const roboTechValley: ExperienceItem = {
   id: "robo-tech-valley-industrial-trainee",
   type: "work",
   featured: true,
-  role: "Industrial Trainee (AI & Computer Vision)",
+  role: "Industrial Trainee — AI & Computer Vision",
   organization: "Robo Tech Valley",
   employmentType: "Internship",
   period: "Feb 2026 – Apr 2026",
@@ -19,10 +19,10 @@ export const roboTechValley: ExperienceItem = {
     "/images/experience/robo tech valley - token of appreciation.webp",
   ],
   points: [
-    "Developed a real-time fruit freshness detection system using YOLOv8 and computer vision",
-    "Engineered the model training pipeline, including dataset processing and preparation",
-    "Deployed real-time inference with object tracking and a Streamlit dashboard for monitoring predictions",
-    "Achieved 97%+ detection accuracy",
+    "Built a fruit freshness detection system using YOLOv8 and computer vision, achieving 97%+ detection accuracy.",
+    "Developed the model training pipeline, including dataset processing and preparation.",
+    "Implemented real-time inference with object tracking.",
+    "Built a Streamlit dashboard to monitor and visualize model predictions.",
   ],
 };
 

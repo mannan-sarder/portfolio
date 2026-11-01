@@ -109,9 +109,9 @@ export default function Projects() {
             variants={itemVariants}
             className="font-satoshi text-[clamp(40px,5vw,64px)] font-extrabold leading-[1.1] tracking-tight text-white mb-5"
           >
-            Things I&apos;ve{" "}
+            Selected{" "}
             <span className="bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent">
-              Built.
+              Projects
             </span>
           </motion.h2>
 
@@ -119,7 +119,7 @@ export default function Projects() {
             variants={itemVariants}
             className="text-[18px] font-normal leading-[1.7] text-[#A1A1AA] font-geist max-w-[700px] mx-auto mb-4"
           >
-            A collection of web and mobile applications I&apos;ve built to solve real-world problems.
+            Web and mobile applications that show my work in full-stack development, database architecture, real-time communication, and applied AI.
           </motion.p>
 
           {/* Tabs — Web / Mobile open the full, dedicated listing; All just re-affirms position */}
@@ -129,8 +129,8 @@ export default function Projects() {
               active
               onClick={() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
             />
-            <TabLink label="Web" href="/projects?type=web" active={false} />
-            <TabLink label="Mobile" href="/projects?type=mobile" active={false} />
+            <TabLink label="Web Development" href="/projects?type=web" active={false} />
+            <TabLink label="Mobile Apps" href="/projects?type=mobile" active={false} />
           </motion.div>
         </motion.div>
 
@@ -169,7 +169,7 @@ export default function Projects() {
             <SubHeader
               icon={<PhoneIcon />}
               title="Mobile Apps"
-              subtitle="Cross-platform mobile applications"
+              subtitle="Android applications and on-device intelligent systems"
             />
             <div className="flex flex-col gap-6">
               {previewMobile.map((p, i) => (

@@ -249,12 +249,12 @@ export default function Stack() {
             variants={itemVariants}
             className="font-satoshi text-[clamp(44px,5.5vw,64px)] font-extrabold leading-[1.05] tracking-tight text-white mb-5"
           >
-            My Tech{" "}
+            Tools I{" "}
             <span
               className="inline bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent"
-              aria-label="Stack"
+              aria-label="Build With"
             >
-              Stack.
+              Build With
             </span>
           </motion.h2>
 
@@ -263,7 +263,7 @@ export default function Stack() {
             variants={itemVariants}
             className="max-w-[700px] text-[18px] font-normal leading-relaxed text-[#A1A1AA] font-geist"
           >
-            Technologies and tools I use to build modern, scalable and efficient solutions.
+            The programming languages, frameworks, databases, and tools I use to build maintainable and scalable software.
           </motion.p>
         </motion.div>
 
