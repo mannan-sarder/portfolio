@@ -27,7 +27,7 @@ export const PERSON: PersonInfo = {
   status: "Open to Opportunities",
   interest: "Building Products & Solving Problems",
   resumeUrl: "/resume.pdf",
-  profileImage: "/images/profile/mannan.jpg",
+  profileImage: "/images/profile/mannan.webp",
   currentFocus: [
     "Full Stack Development",
     "System Architecture",
