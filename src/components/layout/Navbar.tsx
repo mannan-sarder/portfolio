@@ -295,7 +295,7 @@ export default function Navbar() {
         className={[
           "fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300",
           scrolled
-            ? "bg-[rgba(10,10,10,0.90)] backdrop-blur-[12px] border-b border-[#2A2A2A]"
+            ? "bg-[rgba(10,10,10,0.94)] border-b border-[#2A2A2A]"
             : "bg-transparent",
         ].join(" ")}
       >
@@ -386,7 +386,7 @@ export default function Navbar() {
         aria-hidden="true"
         onClick={() => setMenuOpen(false)}
         className={[
-          "fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden",
+          "fixed inset-0 z-40 bg-black/70 transition-opacity duration-300 md:hidden",
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
       />

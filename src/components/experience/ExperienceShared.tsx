@@ -315,7 +315,7 @@ export function TimelineEntry({ item, index }: { item: ExperienceItem; index: nu
         whileHover={{ y: -4 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="grid grid-cols-1 lg:grid-cols-[260px_1fr] rounded-3xl border overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #181823 0%, #111118 100%)", borderColor: "#2A2A36", boxShadow: "0 12px 32px rgba(0,0,0,0.35)", transition: "box-shadow 0.35s ease, border-color 0.35s ease" }}
+        style={{ background: "linear-gradient(135deg, rgba(24,24,35,0.55) 0%, rgba(17,17,24,0.45) 100%)", borderColor: "#2A2A36", boxShadow: "0 12px 32px rgba(0,0,0,0.35)", transition: "box-shadow 0.35s ease, border-color 0.35s ease" }}
         onMouseEnter={(e) => { const el = e.currentTarget; el.style.boxShadow = `0 0 0 1px ${hexToRgba(accent.base, 0.45)}, 0 24px 64px ${hexToRgba(accent.base, 0.22)}, 0 8px 24px rgba(0,0,0,0.55)`; el.style.borderColor = hexToRgba(accent.base, 0.6); }}
         onMouseLeave={(e) => { const el = e.currentTarget; el.style.boxShadow = "0 12px 32px rgba(0,0,0,0.35)"; el.style.borderColor = "#2A2A36"; }}
       >

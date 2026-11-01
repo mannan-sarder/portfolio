@@ -9,6 +9,7 @@ import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";         // ← uncomment when built
 import BehindTheCoding from "@/components/sections/BehindTheCoding"; // ← uncomment when built
 import Contact from "@/components/sections/Contact";           // ← uncomment when built
+import NeuralAurora from "@/components/sections/NeuralAurora";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -22,20 +23,25 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen bg-bg-main overflow-x-hidden">
-      <Hero />
+    <>
+      {/* One fixed neural-network layer behind every section */}
+      <NeuralAurora />
 
-      <About />
+      <main className="relative z-10 min-h-screen overflow-x-hidden">
+        <Hero />
 
-      <Stack />
+        <About />
 
-      <Experience />
+        <Stack />
 
-      <Projects />
+        <Experience />
 
-      <BehindTheCoding />
+        <Projects />
 
-      <Contact />
-    </main>
+        <BehindTheCoding />
+
+        <Contact />
+      </main>
+    </>
   );
 }

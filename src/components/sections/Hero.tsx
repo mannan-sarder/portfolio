@@ -1,12 +1,11 @@
 "use client";
 
-import { useRef, Suspense } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect, Suspense } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import type * as THREE from "three";
 import Image from "next/image";
 import Link from "next/link";
-import NeuralAurora from "@/components/sections/NeuralAurora";
 import { CONTACT_INFO } from "@/data/portfolio";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -22,6 +21,7 @@ interface SocialLink {
 function GlassCube() {
   const groupRef = useRef<THREE.Group>(null);
   const innerRef = useRef<THREE.Mesh>(null);
+  const wireRef = useRef<THREE.Mesh>(null);
   const targetRef = useRef({ x: 0, y: 0 });
 
   useFrame(({ clock, pointer }) => {
@@ -38,6 +38,11 @@ function GlassCube() {
     if (innerRef.current) {
       innerRef.current.rotation.x = t * -0.22;
       innerRef.current.rotation.y = t * 0.28;
+    }
+    // the inner wireframe shares the same rotation as the glowing inner cube
+    if (wireRef.current) {
+      wireRef.current.rotation.x = t * -0.22;
+      wireRef.current.rotation.y = t * 0.28;
     }
   });
 
@@ -76,7 +81,7 @@ function GlassCube() {
           side={2}
         />
       </mesh>
-      <mesh ref={innerRef} scale={0.6}>
+      <mesh ref={wireRef} scale={0.6}>
         <boxGeometry args={[2.2, 2.2, 2.2]} />
         <meshBasicMaterial color="#A78BFA" wireframe transparent opacity={0.55} />
       </mesh>
@@ -195,13 +200,34 @@ export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacityFade = useTransform(scrollYProgress, [0, 1], [1, 1]);
+
+  // Pause the 3D render loop while the cube is off-screen or the tab is hidden
+  const reduced = useReducedMotion();
+  const sceneRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(true);
+  const [tabVisible, setTabVisible] = useState(true);
+
+  useEffect(() => {
+    const el = sceneRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { rootMargin: "100px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onVisibility = () => setTabVisible(!document.hidden);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  const frameloop: "always" | "demand" | "never" = reduced ? "demand" : inView && tabVisible ? "always" : "never";
 
   return (
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen w-full overflow-hidden bg-[#060609] flex items-center"
+      className="relative min-h-screen w-full overflow-x-clip flex items-center"
       aria-label="Hero section"
     >
       {/* ── Background glow blobs ── */}
@@ -218,15 +244,10 @@ export default function Hero() {
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Neural Aurora animation */}
-        <div className="absolute inset-0 opacity-40">
-          <NeuralAurora />
-        </div>
       </div>
 
       {/* ── Main content wrapper ── */}
       <motion.div
-        style={{ opacity: opacityFade }}
         className="relative z-10 mx-auto w-full max-w-[1200px] px-8 pt-[80px] lg:pt-[140px] pb-0"
       >
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-20">
@@ -326,6 +347,7 @@ export default function Hero() {
 
           {/* ── Right column — 3D canvas ── */}
           <motion.div
+            ref={sceneRef}
             className="relative flex-shrink-0 mt-12 lg:mt-0 w-full lg:w-[300px] xl:w-[336px] h-[228px] sm:h-[264px] lg:h-[336px]"
             style={{ x: -40 }}
             variants={canvasVariants}
@@ -340,6 +362,7 @@ export default function Hero() {
             />
 
             <Canvas
+              frameloop={frameloop}
               camera={{ position: [0, 0, 6], fov: 42 }}
               gl={{ antialias: true, alpha: true }}
               dpr={[1, 2]}

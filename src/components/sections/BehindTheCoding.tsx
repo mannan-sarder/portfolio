@@ -15,7 +15,7 @@ export default function BehindTheCoding() {
     <section
       id="behind-the-coding"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0A0A0A] py-[20px]"
+      className="relative w-full overflow-x-clip py-[20px]"
       aria-label="Behind the Coding"
     >
       {/* Ambient glows */}

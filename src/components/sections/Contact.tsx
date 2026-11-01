@@ -623,7 +623,7 @@ function LocationPinIcon({ onPulse }: { onPulse: () => void }) {
         aria-hidden="true"
       />
       <div
-        className="relative w-12 h-12 rounded-2xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-violet-400 transition-transform duration-300 group-hover:scale-105"
+        className="relative w-12 h-12 rounded-2xl bg-white/[0.06] border border-[#2A2A2A] flex items-center justify-center text-violet-400 transition-transform duration-300 group-hover:scale-105"
         style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04), inset 0 0 12px rgba(139,92,246,0.06)" }}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 relative z-10" aria-hidden="true">
@@ -688,7 +688,7 @@ function Card({
       variants={cardVariants}
       whileHover={enhancedHover ? { y: -4, scale: 1.01 } : { y: -3 }}
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative rounded-3xl border border-[#2A2A2A] bg-[#111111] p-8 ${className}`}
+      className={`relative rounded-3xl border border-[#2A2A2A] bg-white/[0.04] p-8 ${className}`}
       style={{ transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
       data-time-card={dataTimeCard ? "" : undefined}
       onMouseEnter={(e) => {
@@ -730,7 +730,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0A0A0A] py-[40px]"
+      className="relative w-full overflow-x-clip py-[40px]"
       aria-label="Contact"
     >
       {/* Ambient glows */}
@@ -787,7 +787,7 @@ export default function Contact() {
               {/* Local Time */}
               <div className="flex-1 flex flex-col items-start gap-4">
                 <motion.div
-                  className="w-12 h-12 rounded-2xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-[#3B82F6] transition-transform duration-300 group-hover:scale-105"
+                  className="w-12 h-12 rounded-2xl bg-white/[0.06] border border-[#2A2A2A] flex items-center justify-center text-[#3B82F6] transition-transform duration-300 group-hover:scale-105"
                   style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04), inset 0 0 12px rgba(59,130,246,0.06)" }}
                   animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -841,7 +841,7 @@ export default function Contact() {
             <NodeCanvas />
             <div className="relative z-10">
               {/* Paper plane icon */}
-              <div className="w-12 h-12 rounded-2xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center mb-6 text-violet-400">
+              <div className="w-12 h-12 rounded-2xl bg-white/[0.06] border border-[#2A2A2A] flex items-center justify-center mb-6 text-violet-400">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
                   <path d="m22 2-7 20-4-9-9-4Z" />
                   <path d="M22 2 11 13" />
@@ -914,7 +914,7 @@ export default function Contact() {
 
             {/* Toggle — visual only */}
             <div
-              className="flex items-center justify-between rounded-2xl border border-[#2A2A2A] bg-[#0F0F0F] px-5 py-4 mb-4"
+              className="flex items-center justify-between rounded-2xl border border-[#2A2A2A] bg-white/[0.03] px-5 py-4 mb-4"
               style={{ pointerEvents: "none", cursor: "default" }}
               aria-label="Open to Collaborations: ON"
             >

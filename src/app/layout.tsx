@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import { SEO } from "@/data/portfolio";
 import "@/styles/globals.css";
 import Footer from "@/components/layout/Footer";
+import MotionProvider from "@/components/layout/MotionProvider";
 // ─── Satoshi Variable (local) ────────────────────────────────────────────────
 // Headings: Hero titles, Section titles, Card titles, Story titles, CTA titles
 // Weights used via font-variation-settings: 600 700 800
@@ -109,9 +110,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${satoshi.variable} ${GeistSans.variable} ${GeistMono.variable} ${inter.variable}`}
     >
       <body className="bg-bg-main text-text-primary antialiased selection:bg-secondary-purple/30 selection:text-white">
-        <Navbar />
-        {children}
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

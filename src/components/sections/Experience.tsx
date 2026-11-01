@@ -35,7 +35,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#070709] py-10 lg:py-0"
+      className="relative w-full overflow-x-clip py-10 lg:py-0"
       aria-label="Experience"
     >
       {/* Ambient background glows */}

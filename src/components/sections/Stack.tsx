@@ -78,7 +78,7 @@ function TechItem({ item }: { item: TechItem }) {
     <motion.div
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#2A2A2A] bg-[#0F0F0F] p-5 cursor-default select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
+      className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#2A2A2A] bg-white/[0.03] p-5 cursor-default select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
       style={{ transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;
@@ -111,7 +111,7 @@ function SecondaryTechItem({ item }: { item: TechItem }) {
     <motion.div
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative flex items-center gap-3 rounded-xl border border-[#2A2A2A] bg-[#0F0F0F] px-4 py-3 cursor-default select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+      className="group relative flex items-center gap-3 rounded-xl border border-[#2A2A2A] bg-white/[0.03] px-4 py-3 cursor-default select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
       style={{ transition: "box-shadow 0.3s ease, border-color 0.3s ease" }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;
@@ -151,7 +151,7 @@ function StackCardComponent({ card, index }: { card: StackCard; index: number })
       variants={cardVariants}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="relative flex flex-col gap-4 rounded-3xl border border-[#2A2A2A] bg-[#111111] p-5 focus-within:ring-2 focus-within:ring-violet-500/30"
+      className="relative flex flex-col gap-4 rounded-3xl border border-[#2A2A2A] bg-white/[0.04] p-5 focus-within:ring-2 focus-within:ring-violet-500/30"
       style={{ transition: "box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease" }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;
@@ -167,7 +167,7 @@ function StackCardComponent({ card, index }: { card: StackCard; index: number })
     >
       {/* Card Header */}
       <header className="flex items-center gap-3 pb-3 border-b border-[#2A2A2A]">
-        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-violet-400 flex-shrink-0" aria-hidden="true">
+        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-white/[0.06] border border-[#2A2A2A] text-violet-400 flex-shrink-0" aria-hidden="true">
           {CARD_ICONS[card.icon] ?? <MonitorIcon />}
         </div>
         <h3 className="text-[17px] font-semibold text-white leading-none font-satoshi">
@@ -209,7 +209,7 @@ export default function Stack() {
     <section
       id="stack"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0A0A0A] py-10 lg:py-0"
+      className="relative w-full overflow-x-clip py-10 lg:py-0"
       aria-label="Tech Stack"
     >
       {/* Ambient background glows */}

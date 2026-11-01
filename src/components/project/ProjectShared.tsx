@@ -416,7 +416,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       variants={cardVariants}
       whileHover={{ y: -3 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="relative rounded-2xl border border-[#2A2A2A] bg-[#111111] overflow-hidden"
+      className="relative rounded-2xl border border-[#2A2A2A] bg-white/[0.04] overflow-hidden"
       style={{ transition: "box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease" }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;

@@ -245,7 +245,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full overflow-hidden bg-[#0A0A0A] py-[20px]"
+      className="relative w-full overflow-x-clip py-[20px]"
       aria-label="About section"
     >
       {/* ── Background decorations ── */}
@@ -350,7 +350,7 @@ export default function About() {
             viewport={{ once: true, margin: "-80px" }}
           >
             <div
-              className="relative w-full rounded-[32px] border border-[#2A2A2A] bg-[#111111] p-8 sm:p-10"
+              className="relative w-full rounded-[32px] border border-[#2A2A2A] bg-white/[0.04] p-8 sm:p-10"
               style={{ boxShadow: "0 0 60px rgba(139,92,246,0.06), 0 24px 48px rgba(0,0,0,0.4)" }}
             >
               {/* Corner accent lines */}
@@ -371,7 +371,7 @@ export default function About() {
                     aria-hidden="true"
                   />
                   {/* Image container */}
-                  <div className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] rounded-full overflow-hidden border-2 border-[#2A2A2A] bg-[#1A1A1A]">
+                  <div className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] rounded-full overflow-hidden border-2 border-[#2A2A2A] bg-white/[0.06]">
                     <Image
                       src={PERSON.profileImage}
                       alt={`${PERSON.name} — ${PERSON.roleHighlight}`}
@@ -411,7 +411,7 @@ export default function About() {
                     <div className="flex items-center gap-4 py-5">
                       {/* Icon box */}
                       <div
-                        className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-[#8B5CF6]"
+                        className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-[#2A2A2A] text-[#8B5CF6]"
                         aria-hidden="true"
                       >
                         {row.icon}

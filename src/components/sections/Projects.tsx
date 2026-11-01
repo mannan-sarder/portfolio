@@ -79,7 +79,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0A0A0A] py-[30px]"
+      className="relative w-full overflow-x-clip py-[30px]"
       aria-label="Projects"
     >
       {/* Ambient glows */}

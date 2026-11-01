@@ -6,7 +6,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-[#2A2A2A] bg-[#0A0A0A]">
+    <footer className="relative z-10 w-full border-t border-[#2A2A2A]">
       <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-8 py-8">
 
         {/* Desktop */}
