@@ -42,7 +42,7 @@ export const PERSON: PersonInfo = {
 export const SEO: SeoMeta = {
   title: "MD Mannan Sarder — Software Engineer & Full Stack Developer",
   description:
-    "Software Engineer & Full Stack Developer based in Bangladesh. Building modern web applications and turning ideas into useful digital products.",
+    "Software Engineer & Full-Stack Developer specializing in web platforms, Android solutions, and applied AI systems — building robust software from database to UI.",
   keywords: [
     "Software Engineer",
     "Full Stack Developer",
